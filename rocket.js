@@ -31,7 +31,11 @@ class Rocket {
             this.point *= 3;
         }
         if (this.crashed || (!this.crashed && this.win)) {
-            let agePoint = map(this.age, 0, 200, 0, 1, true) / 2;
+            let agePoint = map(this.age, 0, 200, 0, 1, true) / 3;
+            this.point += agePoint;
+        }
+        if (!this.crashed && !this.win) {
+            let agePoint = map(this.age, 0, 200, 0, 1, true);
             this.point += agePoint;
         }
     }
