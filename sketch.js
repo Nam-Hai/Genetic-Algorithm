@@ -158,5 +158,11 @@ class DNA {
         gene.setMag(speed)
       }
     }
+    if (random(1) < 0.005) {
+      for (let gene of this.genes) {
+        gene = p5.Vector.random2D();
+        gene.setMag(speed)
+      }
+    }
   }
 }
