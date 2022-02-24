@@ -28,16 +28,16 @@ class Rocket {
         if (this.win) {
             let speedPoint = map(this.age, 0, 200, 1, 0, true)
             this.point += speedPoint;
-            this.point *= 3;
+            this.point *= 5;
         }
-        if (this.crashed || (!this.crashed && this.win)) {
-            let agePoint = map(this.age, 0, 200, 0, 1, true) / 3;
-            this.point += agePoint;
-        }
-        if (!this.crashed && !this.win) {
-            let agePoint = map(this.age, 0, 200, 0, 1, true);
-            this.point += agePoint;
-        }
+        // if (this.crashed || (!this.crashed && this.win)) {
+        //     let agePoint = map(this.age, 0, 200, 0, 1, true) / 3;
+        //     this.point += agePoint;
+        // }
+        // if (!this.crashed && !this.win) {
+        //     let agePoint = map(this.age, 0, 200, 0, 1, true);
+        //     this.point += agePoint;
+        // }
     }
 
     update() {
