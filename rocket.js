@@ -58,7 +58,7 @@ class Rocket {
         rotate(this.vel.heading())
         rectMode(CENTER);
         noStroke()
-        fill(50, 50, 50, 120)
+        fill(50, 50, 50, 90)
         rect(0, 0, 30, 5);
         pop();
     }

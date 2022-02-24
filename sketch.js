@@ -4,7 +4,7 @@ let counter;
 let lifeP;
 let target;
 const speed = 0.3;
-
+const popul = 400;
 const rectX = 100;
 const rectY = 200;
 const rectW = 150;
@@ -51,7 +51,7 @@ function draw() {
 class Population {
   constructor() {
     this.rockets = [];
-    this.popsize = 70;
+    this.popsize = popul;
     this.matingPool = [];
 
     for (let i = 0; i < this.popsize; i++) {
