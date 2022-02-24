@@ -26,7 +26,7 @@ class Rocket {
         this.point = 1 / (1 + d);
 
         if (this.win) {
-            let speedPoint = map(this.age, 0, 200, 1, 0, true)
+            let speedPoint = map(this.age, 0, 200, 1, 0, true) * 8
             this.point += speedPoint;
             this.point *= 5;
         }

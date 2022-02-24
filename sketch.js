@@ -10,6 +10,8 @@ const rectY = 200;
 const rectW = 150;
 const rectH = 10;
 
+let bestScore = 201;
+const bestScoreDiv = document.querySelector(".bestScore");
 const generationCountDiv = document.querySelector(".generationCount");
 let generation = 0;
 const lifespan = 200;
@@ -33,11 +35,27 @@ function draw() {
   counter++;
 
   if (counter == lifespan) {
+    bestScore = 201;
+    for (let rocket of population.rockets) {
+
+      if (rocket.win && rocket.age < bestScore) {
+        bestScore = rocket.age;
+      }
+    }
+    if (bestScore < 201) {
+      bestScoreDiv.textContent = "Best : " + bestScore;
+    }
+
     population.evaluate();
     population.selection()
     counter = 0;
     generation++;
+
+
+
     generationCountDiv.textContent = "Generation : " + generation;
+
+
   }
 
   // Obstacle
@@ -102,7 +120,9 @@ class Population {
       let parentB = random(this.matingPool).dna;
 
       let child = parentA.crossoverOnePoint(parentB);
+
       child.mutation();
+
       newRockets.push(new Rocket(child))
     }
     this.rockets = newRockets;
@@ -152,10 +172,11 @@ class DNA {
   }
 
   mutation() {
-    for (let gene of this.genes) {
-
-      gene = p5.Vector.random2D();
-      gene.setMag(speed)
+    for (let i = 0; i < this.genes.length; i++) {
+      if (random(1) < 0.0025) {
+        this.genes[i] = p5.Vector.random2D();
+        this.genes[i].setMag(speed)
+      }
 
     }
 
